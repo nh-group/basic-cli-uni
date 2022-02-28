@@ -3,6 +3,7 @@ package fr.pantheonsorbonne.ufr27.entity;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
 
 public class Student extends EducationEntity {
 
@@ -31,5 +32,6 @@ public class Student extends EducationEntity {
 	public boolean isKnown(String skill) {
 		return this.passedCourses.stream().anyMatch((Course c) -> c.getName().startsWith(skill));
 	}
+
 
 }

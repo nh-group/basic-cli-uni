@@ -5,7 +5,6 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Pattern;
 
 import javax.inject.Inject;
 
@@ -63,7 +62,7 @@ public class StartCourseAction implements EducationAction {
 		students.stream().filter((Student s) -> s.isEnrolled(course.get()))
 				.filter((Student s) -> !s.isKnown(course.get().getName()))
 				.filter((Student s) -> rand.nextDouble() < 0.8)
-				.map((Student s) -> factory.StudentPassCourseAction(s.getName(), course.get().getName()))
+				.map((Student s) -> factory.studentPassCourseAction(s.getName(), course.get().getName()))
 				.forEach(StartCourseAction::unsafeActionPerform);
 
 	}

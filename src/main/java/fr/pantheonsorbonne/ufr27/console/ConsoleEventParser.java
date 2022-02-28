@@ -1,14 +1,9 @@
 package fr.pantheonsorbonne.ufr27.console;
 
-import java.util.Collection;
-import java.util.Set;
-import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.inject.Inject;
-
-import com.google.inject.Injector;
 
 import fr.pantheonsorbonne.ufr27.action.EducationAction;
 import fr.pantheonsorbonne.ufr27.action.EducationActionFactory;
@@ -80,7 +75,7 @@ public class ConsoleEventParser {
 
 			Pattern pattern = Pattern.compile("^([^ ]+) passes ([^ ]+)");
 			if ((matcher = pattern.matcher(command)).matches()) {
-				return factory.StudentPassCourseAction(matcher.group(1), matcher.group(2));
+				return factory.studentPassCourseAction(matcher.group(1), matcher.group(2));
 			}
 		}
 

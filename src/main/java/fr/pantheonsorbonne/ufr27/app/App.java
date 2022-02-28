@@ -10,9 +10,8 @@ import org.slf4j.LoggerFactory;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-import fr.pantheonsorbonne.ufr27.Secured;
 import fr.pantheonsorbonne.ufr27.action.EducationAction;
-import fr.pantheonsorbonne.ufr27.configuration.AppConfiguration;
+import fr.pantheonsorbonne.ufr27.configuration.AppConfigurationImpl;
 import fr.pantheonsorbonne.ufr27.console.ConsoleEventParser;
 import fr.pantheonsorbonne.ufr27.exception.EducationException;
 
@@ -29,7 +28,7 @@ public class App {
 		LOG.info(new App().toString());
 		Arrays.stream(App.class.getDeclaredFields()).forEach((Field f) -> LOG.info("field in App: " + f.getName()));
 
-		Injector injector = Guice.createInjector(new AppConfiguration());
+		Injector injector = Guice.createInjector(new AppConfigurationImpl());
 		Scanner scanner = new Scanner(System.in);
 		String line = "";
 		ConsoleEventParser parser = injector.getInstance(ConsoleEventParser.class);

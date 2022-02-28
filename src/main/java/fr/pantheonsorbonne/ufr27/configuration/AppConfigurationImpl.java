@@ -15,29 +15,32 @@ import fr.pantheonsorbonne.ufr27.entity.Course;
 import fr.pantheonsorbonne.ufr27.entity.Student;
 import fr.pantheonsorbonne.ufr27.entity.Teacher;
 
-public class AppConfiguration extends AbstractModule {
+public class AppConfigurationImpl extends AbstractModule {
 
-	@Override
-	protected void configure() {
-		install(new FactoryModuleBuilder().implement(EducationAction.class, AddTeacherAction.class)
-				.build(EducationActionFactory.class));
-	}
 
-	@Singleton
-	@Provides
-	public Collection<Teacher> getTeachers() {
-		return new HashSet<Teacher>();
-	}
+    protected void configure() {
+        install(new FactoryModuleBuilder()
+                .build(EducationActionFactory.class));
+    }
 
-	@Singleton
-	@Provides
-	public Collection<Student> getStudents() {
-		return new HashSet<Student>();
-	}
-	
-	@Singleton
-	@Provides
-	public Collection<Course> getCourses() {
-		return new HashSet<Course>();
-	}
+
+    @Singleton
+    @Provides
+    public Collection<Teacher> getTeachers() {
+        return new HashSet<Teacher>();
+    }
+
+
+    @Singleton
+    @Provides
+    public Collection<Student> getStudents() {
+        return new HashSet<Student>();
+    }
+
+
+    @Singleton
+    @Provides
+    public Collection<Course> getCourses() {
+        return new HashSet<Course>();
+    }
 }
