@@ -89,6 +89,13 @@
                                         <version>${dextorm.vesion}</version>
                                         <outputDirectory>${project.build.directory}/agents</outputDirectory>
                                     </artifactItem>
+
+                                    <artifactItem>
+                                        <groupId>org.jacoco</groupId>
+                                        <artifactId>org.jacoco.agent</artifactId>
+                                        <version>0.8.7</version>
+                                        <outputDirectory>${project.build.directory}/agents</outputDirectory>
+                                    </artifactItem>
                                 </artifactItems>
                                 <outputAbsoluteArtifactFilename>true</outputAbsoluteArtifactFilename>
                             </configuration>
@@ -112,7 +119,7 @@
                             -javaagent:${project.build.directory}/agents/dextorm-${dextorm.vesion}.jar
                             --illegal-access=permit
                         </argLine>
-                        
+
 
                     </configuration>
                 </plugin>
@@ -183,13 +190,13 @@
         <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
-            <version>4.2.2</version>
+            <version>5.0.1</version>
         </dependency>
 
         <dependency>
             <groupId>com.google.inject.extensions</groupId>
             <artifactId>guice-assistedinject</artifactId>
-            <version>4.2.2</version>
+            <version>5.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
@@ -201,7 +208,7 @@
         <dependency>
             <groupId>com.google.inject.extensions</groupId>
             <artifactId>guice-multibindings</artifactId>
-            <version>4.2.2</version>
+            <version>4.2.3</version>
         </dependency>
 
         <dependency>
@@ -246,5 +253,17 @@
 
 
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>miage</id>
+            <url>https://maven.miage.dev/releases</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>miage</id>
+            <url>https://maven.miage.dev/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
